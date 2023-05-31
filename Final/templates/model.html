@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Enabled Car Parking - Model</title>
+    <style>
+        body {
+            {% if background_image %}
+                background-image: url("{{ background_image }}");
+            {% else %}
+                background-color: #f1f1f1;
+            {% endif %}
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header ul li {
+            margin-left: 10px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .fake-result {
+            color: red;
+        }
+
+        .real-result {
+            color: green;
+        }
+
+        .file-label {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .audio-player {
+            margin-top: 20px;
+        }
+
+        .loader {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .loader img {
+            width: 30px;
+            height: 30px;
+        }
+
+        footer {
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VOICE DEEPFAKE DETECTION</h1>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/login.html">Login</a></li>
+            <li><a href="/register.html">Register</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <h2>Upload an audio file:</h2>
+        <form id="upload_form" action="/model.html" method="POST" enctype="multipart/form-data">
+            <input type="file" name="audio_file" id="audio_file" required>
+            <br><br>
+            <div id="loader" class="loader" style="display: none;">
+                <img src="/static/loader.gif" alt="Loading...">
+            </div>
+            <input type="submit" id="submit_btn" value="Submit" onclick="showLoader()">
+        </form>
+
+        <div class="audio-player">
+            <audio controls id="audio_player">
+                <source id="audio_source" src="#" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        {% if file_label %}
+            <div class="result">
+                <p class="file-label">{{ file_label }}</p>
+                {% if result_label %}
+                    {% set result_parts = result_label.split(':') %}
+                    <p>
+                        <span class="black-text">{{ result_parts[0] }}:</span>
+                        {% if "Fake" in result_parts[1] %}
+                            <span class="fake-result">{{ result_parts[1] }}</span>
+                        {% else %}
+                            <span class="real-result">{{ result_parts[1] }}</span>
+                        {% endif %}
+                        {% if result_parts[2] %}
+                            :<span class="fake-result">{{ result_parts[2] }}</span>
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+    </div>
+
+    <footer>
+        &copy; 2023 Mini project. Please feel free to contact us with any inquiries you may have.
+    </footer>
+
+    <script>
+
+    const audioFileInput = document.getElementById('audio_file');
+    const audioPlayer = document.getElementById('audio_player');
+    const audioSource = document.getElementById('audio_source');
+    const uploadForm = document.getElementById('upload_form');
+    const submitBtn = document.getElementById('submit_btn');
+    const loader = document.getElementById('loader');
+
+    audioFileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const fileURL = URL.createObjectURL(file);
+        audioSource.src = fileURL;
+        audioPlayer.load();
+    });
+    uploadForm.addEventListener('submit', function() {
+            loader.style.display = 'block';
+            submitBtn.disabled = true;
+    function showLoader() {
+        loader.style.display = 'block';
+            submitBtn.disabled = true;
+    }
+    });
+</script>
+</body>
+</html>
