@@ -33,3 +33,9 @@ Voice Deepfake Detection is a web application that uses machine learning techniq
 # Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please submit a pull request or open an issue in the GitHub repository.
+
+# Voice Deepfake Detection - Custom License
+
+All rights reserved. No part of this project may be reproduced, distributed, or transmitted in any form or by any means, without the prior written permission of the project owner.
+
+For inquiries regarding licensing and usage, please contact [jeraldgolden00@gmail.com].
