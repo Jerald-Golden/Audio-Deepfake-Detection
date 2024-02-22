@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            {% if background_image %}
+                background-image: url("{{ background_image }}");
+            {% else %}
+                background-color: #f1f1f1;
+            {% endif %}
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header ul li {
+            margin-left: 10px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+            width: 40%;
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        .login-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .register-now a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .register-now {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #7B68EE;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .popup-message {
+            color: red;
+            text-align: center;
+        }
+
+    </style>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var msg = "{{ msg }}";
+            if (msg) {
+                var popupContainer = document.getElementById("popup-container");
+                var popupMessage = document.createElement("div");
+                popupMessage.textContent = msg;
+                popupMessage.className = "popup-message";
+                popupContainer.appendChild(popupMessage);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>VOICE DEEPFAKE DETECTION</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form class="login-form" method="POST" action="/login.html">
+                <div id="popup-container"></div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="register-now">
+                    <span>Don't have an account? </span>
+                    <a href="register.html">Register now</a>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2023 Mini project. Please feel free to contact us with any inquiries you may have.
+    </footer>
+</body>
+</html>
