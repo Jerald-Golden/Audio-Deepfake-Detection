@@ -114,7 +114,7 @@ def model():
     loader_visible = False
 
     if request.method == 'POST':
-        print(request)
+        # print(request)
         selected_file = request.files['audio_file']
         file_name = selected_file.filename
 
