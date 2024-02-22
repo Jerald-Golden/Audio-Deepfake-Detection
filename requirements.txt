@@ -1,5 +1,1 @@
 Flask==2.2.2
-numpy==1.23.5
-pandas==1.5.1
-librosa==0.10.1
-pandas==1.5.3
