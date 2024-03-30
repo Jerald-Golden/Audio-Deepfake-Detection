@@ -3,4 +3,4 @@ numpy==1.23.3
 librosa==0.10.1
 pandas==1.5.3
 resampy==0.4.2
-
+gunicorn==19.7.1
