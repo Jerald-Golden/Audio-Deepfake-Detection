@@ -1,5 +1,7 @@
-Flask==2.2.2
-numpy==1.23.3
-librosa==0.10.1
-pandas==1.5.3
 resampy==0.4.2
+Flask==2.1.1
+numpy==1.22.2
+sqlite3
+pandas==1.4.1
+librosa==0.8.1
+
