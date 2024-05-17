@@ -30,4 +30,4 @@ This project was developed as part of a college project and should not be consid
 
 To enhance the accuracy of this deepfake detection system, your contribution is valuable. If you have additional deepfake audio samples or expertise in deepfake detection, we welcome your collaboration and encourage you to contribute to the project. By expanding the dataset and incorporating more diverse samples, we can collectively improve the effectiveness of the system. Please feel free to reach out and contribute to this ongoing effort [jeraldgolden00@gmail.com].
 
-For inquiries regarding licensing and usage, please contact [jeraldgolden00@gmail.com].
+For inquiries, please contact [jeraldgolden00@gmail.com].
